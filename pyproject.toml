@@ -37,13 +37,18 @@ dependencies = [
   "dask",
   "diffrax",
   "flax",
+  "jax[cuda13]>=0.8.1",
+  "notebook>=7.5.0",
   "orbax",
   "ott-jax==0.5",
-  "pyarrow",             # required for dask.dataframe
+  "pyarrow", # required for dask.dataframe
+  "rapids-singlecell[rapids13]>=0.13.4",
   "scanpy",
   "scikit-learn==1.5.1",
-  "scipy<1.16",          # see https://github.com/statsmodels/statsmodels/issues/9584
+  "scipy<1.16", # see https://github.com/statsmodels/statsmodels/issues/9584
   "session-info",
+  "torch>=2.9.1",
+  "transformers>=4.57.3",
 ]
 
 optional-dependencies.dev = [
@@ -104,6 +109,9 @@ urls.Source = "https://github.com/theislab/cellflow"
 
 [tool.hatch.build.targets.wheel]
 packages = [ 'src/cellflow' ]
+
+[[tool.uv.index]]
+url = "https://pypi.nvidia.com/"
 
 [tool.hatch.version]
 source = "vcs"
