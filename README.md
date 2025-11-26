@@ -24,17 +24,30 @@ Check out the [preprint](https://www.biorxiv.org/content/10.1101/2025.04.11.6482
 - ... and more; check out the [documentation](https://cellflow.readthedocs.io) for more information.
 
 
-Installation
+Installation (UV)
 ------------
 Install **CellFlow** by running::
+```
+    uv sync
+```
 
+Installation (Conda)
+------------
+Install **CellFlow** by running::
+```
+    conda env create -f conda/rsc_rapids_25.10.yml
+    conda activate cellflow_rapids
+    pip uninstall bokeh holoviews shapely
+    pip install transformers torch
+    pip install cuda-toolkit[cublas,cufft,curand,cusolver,cusparse]>=12
+    pip install -U "jax[cuda13]"
     pip install cellflow-tools
+```
+**NOTES:**
+- Some pip dependency errors might appear during installation, but those can be ignored.
+- A message about JAX not being able to get GPU information might also show up, however that can be ignored.
 
-
-In order to install **CellFlow** in editable mode, run::
-
-    git clone https://github.com/theislab/cellflow
-    cd cellflow
-    pip install -e .
-
+Installation (Other)
+------------
+Please refer to the original repository for other installation options.
 For further instructions how to install jax, please refer to https://github.com/google/jax.
