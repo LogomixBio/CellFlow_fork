@@ -49,6 +49,7 @@ dependencies = [
   "session-info",
   "torch>=2.9.1",
   "transformers>=4.57.3",
+  "wandb>=0.23.0",
 ]
 
 optional-dependencies.dev = [
